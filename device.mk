@@ -75,14 +75,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_performance_sm7150_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_sm7150_v0.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_performance_sm7150_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_sm7150_v1.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_sm7150_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_sm7150_v0.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_sm7150_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_sm7150_v1.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_performance_sdmmagpie_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_sdmmagpie_v0.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_performance_sdmmagpie_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_sdmmagpie_v1.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_sdmmagpie_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_sdmmagpie_v0.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_sdmmagpie_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_sdmmagpie_v1.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_vendor_sm7150_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_sm7150_v0.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_vendor_sm7150_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_sm7150_v1.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_vendor_sdmmagpie_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_sdmmagpie_v0.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_vendor_sdmmagpie_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_sdmmagpie_v1.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_vivo_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vivo_audio.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_vivo_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vivo_video.xml \
     $(LOCAL_PATH)/configs/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
@@ -151,8 +151,10 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.sh \
     init.qti.can.sh \
+    init.qti.charger.sh \
     init.qti.fm.sh \
     init.qti.ims.sh \
+    init.qti.manifest_sku.sh \
     init.qti.qseecomd.sh \
     init.vivo.crashdata.sh \
     init.vivo.fingerprint.sh \

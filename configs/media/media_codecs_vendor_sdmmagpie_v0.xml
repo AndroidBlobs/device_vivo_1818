@@ -83,7 +83,7 @@ Only the three quirks included above are recognized at this point:
 -->
 
 <!--
- sm7150 Non-Secure decoder capabilities
+ sdmmagpie Non-Secure decoder capabilities
  _________________________________________________________
  | Codec       | W       H       fps     Mbps    MB/s    |
  |_____________|_________________________________________|
@@ -102,7 +102,7 @@ Only the three quirks included above are recognized at this point:
  | mpeg2       | 1920    1088    30      40      244800  |
  |_____________|_________________________________________|
 
- sm7150 Secure decoder capabilities
+ sdmmagpie Secure decoder capabilities
  ______________________________________________________
  | Codec    | W       H       fps     Mbps    MB/s    |
  |__________|_________________________________________|
@@ -115,7 +115,7 @@ Only the three quirks included above are recognized at this point:
  | mpeg2    | 1920    1088    30      40      244800  |
  |__________|_________________________________________|
 
- sm7150 Non-Secure encoder capabilities (Secure not supported)
+ sdmmagpie Non-Secure encoder capabilities (Secure not supported)
  ______________________________________________________
  | Codec    | W       H       fps     Mbps    MB/s    |
  |__________|_________________________________________|
@@ -131,7 +131,7 @@ Only the three quirks included above are recognized at this point:
 -->
 
 <MediaCodecs>
-    <Include href="media_codecs_google_audio.xml" />
+    <Include href="media_codecs_vendor_audio.xml" />
     <Include href="media_codecs_google_telephony.xml" />
     <Settings>
         <Setting name="max-video-encoder-input-buffers" value="11" />
@@ -174,7 +174,18 @@ Only the three quirks included above are recognized at this point:
             <Limit name="frame-rate" range="1-480" />
             <Limit name="concurrent-instances" max="16" />
             <Limit name="quality" range="0-100" default="80" />
-            <Feature name="bitrate-modes" value="VBR,CBR,CQ" />
+            <Feature name="bitrate-modes" value="VBR,CBR" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.encoder.heic" type="image/vnd.android.heic" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="requires-loaded-to-idle-after-allocation" />
+            <Limit name="size" min="512x512" max="8192x8192" />
+            <Limit name="frame-rate" range="1-20" />
+            <Limit name="concurrent-instances" max="6" />
+            <Limit name="quality" range="0-100" default="80" />
+            <Feature name="bitrate-modes" value="CQ" />
         </MediaCodec>
         <!-- Video Software -->
         <MediaCodec name="OMX.qcom.video.encoder.h263sw" type="video/3gpp" >

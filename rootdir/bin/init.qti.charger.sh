@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2013, The Linux Foundation. All rights reserved.
+# Copyright (c) 2019 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -9,7 +9,7 @@
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in the
 #       documentation and/or other materials provided with the distribution.
-#     * Neither the name of Linux Foundation nor
+#     * Neither the name of The Linux Foundation nor
 #       the names of its contributors may be used to endorse or promote
 #       products derived from this software without specific prior written
 #       permission.
@@ -27,8 +27,21 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-baseband=`getprop ro.baseband`
-if [ "$baseband" = "mdm" ] || [ "$baseband" = "mdm2" ]; then
-	start vendor.mdm_helper
-fi
+export PATH=/vendor/bin
 
+prefix="/sys/class/"
+#List of folder for ownership update
+arr=( "power_supply/battery/" "power_supply/usb/" "power_supply/main/" "power_supply/charge_pump_master/" "power_supply/pc_port/" "power_supply/dc/" "power_supply/bms/" "power_supply/parallel/" "usbpd/usbpd0/" "qc-vdm/" "charge_pump/" "qcom-battery/" )
+for i in "${arr[@]}"
+do
+    for j in `ls "$prefix""$i"`
+    do
+        #skip directories to prevent possible security issues.
+        if [[ -d "$prefix""$i""$j" ]]
+        then
+            continue
+        else
+            chown -h system.system "$prefix""$i""$j"
+        fi
+    done
+done
